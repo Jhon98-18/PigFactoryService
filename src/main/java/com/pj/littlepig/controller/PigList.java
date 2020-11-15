@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static com.pj.littlepig.response.ResponseStatus.OK;
+import static com.pj.littlepig.response.ResponseStatus.WRONG;
 
 @CrossOrigin
 @RestController
@@ -53,7 +54,7 @@ public class PigList {
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity error(Exception e) {
         e.printStackTrace();
-        return new ResponseEntity(OK);
+        return new ResponseEntity(WRONG);
     }
 }
 
