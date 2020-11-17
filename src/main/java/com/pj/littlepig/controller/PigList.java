@@ -33,7 +33,7 @@ public class PigList {
     private UserRoleService userRoleService;
 
     @GetMapping("/getPigList")
-    public ResponseEntity getPigListByFactoryId(@RequestParam String factoryId) {
+    public ResponseEntity getPigListByFactoryId(@RequestParam(value = "factoryId",required = false) String factoryId) {
         List<Pig> pig = pigListService.getPigListByFactory(factoryId);
         return new ResponseEntity(pig);
     }
