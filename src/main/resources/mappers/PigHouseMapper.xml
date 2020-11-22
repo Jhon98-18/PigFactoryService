@@ -89,12 +89,12 @@
       #{isdisinfection,jdbcType=CHAR}, #{factoryId,jdbcType=INTEGER})
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <!--通过工厂id来获取-->
-    <select id="getPigHouseListByFactory" parameterType="Integer" resultMap="BaseResultMap">
+    <!--通过id来获取-->
+    <select id="getPigHouseListByHouseId" parameterType="Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from pighouse
-        where factoryId = #{factoryId}
+        where id = #{id}
     </select>
 
     <!--通过工厂id来获取-->

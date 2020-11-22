@@ -16,9 +16,9 @@ public class PigHouseListServiceImpl implements PigHouseListService {
     @Autowired
     private PigHouseMapper pigHouseMapper;
     @Override
-    public List<PigHouse> getPigHouseListByFactory(String factoryId) {
-        List<PigHouse> pigHouseListByFactory = pigHouseMapper.getPigHouseListByFactory(Integer.parseInt(factoryId));
-        return pigHouseListByFactory;
+    public List<PigHouse> getPigHouseListByHouseId(String houseId) {
+        List<PigHouse> pigHouseListByHouseId = pigHouseMapper.getPigHouseListByHouseId(Integer.parseInt(houseId));
+        return pigHouseListByHouseId;
     }
 
     @Override

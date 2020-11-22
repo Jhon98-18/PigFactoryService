@@ -6,7 +6,7 @@ import com.pj.littlepig.pojo.PigHouse;
 import java.util.List;
 
 public interface PigHouseListService {
-    List<PigHouse> getPigHouseListByFactory(String factoryId);
+    List<PigHouse> getPigHouseListByHouseId(String houseId);
 
     List<PigHouse> getPagePigHouseList(PigHousePaginationInfo pigHousePaginationInfo);
 

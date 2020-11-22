@@ -7,7 +7,7 @@ public class PigHouse {
 
     private String description;
 
-    private Character isdisinfection;
+    private Integer isdisinfection;
 
     private Integer factoryId;
 
@@ -35,11 +35,11 @@ public class PigHouse {
         this.description = description;
     }
 
-    public Character getIsdisinfection() {
+    public Integer getIsdisinfection() {
         return isdisinfection;
     }
 
-    public void setIsdisinfection(Character isdisinfection) {
+    public void setIsdisinfection(Integer isdisinfection) {
         this.isdisinfection = isdisinfection;
     }
 

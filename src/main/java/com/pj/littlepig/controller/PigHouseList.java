@@ -27,9 +27,9 @@ public class PigHouseList {
     private UserRoleService userRoleService;
 
     @GetMapping("/getPigHouseList")
-    public ResponseEntity getPigHouseListByFactoryId(@RequestParam(value = "factoryId",required = false) String factoryId) {
-        List<PigHouse> pigHouseListByFactory = pigHouseListService.getPigHouseListByFactory(factoryId);
-        return new ResponseEntity(pigHouseListByFactory);
+    public ResponseEntity getPigHouseListByHouseId(@RequestParam(value = "houseId",required = false) String houseId) {
+        List<PigHouse> pigHouseListByHouseId = pigHouseListService.getPigHouseListByHouseId(houseId);
+        return new ResponseEntity(pigHouseListByHouseId);
     }
 
     @GetMapping("/getAllPigHouseList")
@@ -44,10 +44,5 @@ public class PigHouseList {
         return new ResponseEntity(pagePigHouseList);
     }
 
-    //这个异常是用来处理那些没用控制住的异常，如IndexOver。。。
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity error(Exception e) {
-        e.printStackTrace();
-        return new ResponseEntity(WRONG);
-    }
+
 }

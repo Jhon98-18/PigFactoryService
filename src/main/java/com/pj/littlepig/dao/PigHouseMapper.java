@@ -21,7 +21,7 @@ public interface PigHouseMapper {
 
     int updateByPrimaryKey(PigHouse record);
 
-    List<PigHouse> getPigHouseListByFactory(Integer factoryId);
+    List<PigHouse> getPigHouseListByHouseId(Integer HouseId);
 
     List<PigHouse> getPagePigHouseList(PigHousePaginationInfo pigHousePaginationInfo);
 
