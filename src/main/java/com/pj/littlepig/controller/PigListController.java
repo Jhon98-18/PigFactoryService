@@ -22,7 +22,7 @@ import static com.pj.littlepig.response.ResponseStatus.WRONG;
 @CrossOrigin
 @RestController
 @RequestMapping("/pig")
-public class PigList {
+public class PigListController {
     @Autowired
     private PigListService pigListService;
     @Autowired

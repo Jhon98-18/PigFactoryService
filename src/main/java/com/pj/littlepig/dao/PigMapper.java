@@ -20,6 +20,7 @@ public interface PigMapper {
 
     int updateByPrimaryKey(Pig record);
 
+    /*自定义*/
     List<Pig> getPigListByFactory(Integer factoryId);
 
     List<Pig> getPagePigList(PigPaginationInfo paginationInfo);

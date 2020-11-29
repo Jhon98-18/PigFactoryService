@@ -50,15 +50,4 @@ public class Pig {
     public void setPighouseid(Integer pighouseid) {
         this.pighouseid = pighouseid;
     }
-
-    @Override
-    public String toString() {
-        return "Pig{" +
-                "id=" + id +
-                ", type=" + type +
-                ", variety='" + variety + '\'' +
-                ", factoryid=" + factoryid +
-                ", pighouseid=" + pighouseid +
-                '}';
-    }
 }

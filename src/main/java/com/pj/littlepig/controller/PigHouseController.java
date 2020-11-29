@@ -16,7 +16,7 @@ import static com.pj.littlepig.response.ResponseStatus.WRONG;
 @CrossOrigin
 @RestController
 @RequestMapping("/pighouse")
-public class PigHouseList {
+public class PigHouseController {
     @Autowired
     private PigHouseListService pigHouseListService;
     @Autowired

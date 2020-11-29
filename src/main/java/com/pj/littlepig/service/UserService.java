@@ -6,4 +6,7 @@ import com.pj.littlepig.pojo.SysUser;
 public interface UserService {
     SysUser selectById(Integer id);
     SysUser selectByName(String userName);
+    void insert(SysUser user);
+
+
 }

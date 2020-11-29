@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pj.littlepig.dao.FactoryMapper">
+  <resultMap id="BaseResultMap" type="com.pj.littlepig.pojo.Factory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="no" jdbcType="VARCHAR" property="no" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="isdisinfection" jdbcType="CHAR" property="isdisinfection" />
+    <result column="factoryId" jdbcType="INTEGER" property="factoryid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, no, description, isdisinfection, factoryId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pighouse
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pighouse
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pj.littlepig.pojo.Factory">
+    insert into pighouse (id, no, description, 
+      isdisinfection, factoryId)
+    values (#{id,jdbcType=INTEGER}, #{no,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{isdisinfection,jdbcType=CHAR}, #{factoryid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pj.littlepig.pojo.Factory">
+    insert into pighouse
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="no != null">
+        no,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="isdisinfection != null">
+        isdisinfection,
+      </if>
+      <if test="factoryid != null">
+        factoryId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="no != null">
+        #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isdisinfection != null">
+        #{isdisinfection,jdbcType=CHAR},
+      </if>
+      <if test="factoryid != null">
+        #{factoryid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pj.littlepig.pojo.Factory">
+    update pighouse
+    <set>
+      <if test="no != null">
+        no = #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isdisinfection != null">
+        isdisinfection = #{isdisinfection,jdbcType=CHAR},
+      </if>
+      <if test="factoryid != null">
+        factoryId = #{factoryid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pj.littlepig.pojo.Factory">
+    update pighouse
+    set no = #{no,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      isdisinfection = #{isdisinfection,jdbcType=CHAR},
+      factoryId = #{factoryid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.pj.littlepig.pojo.Factory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="factory_ame" jdbcType="VARCHAR" property="factoryAme" />
+    <result column="holder" jdbcType="VARCHAR" property="holder" />
+    <result column="phone" jdbcType="BIGINT" property="phone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, factory_ame, holder, phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from factory
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from factory
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pj.littlepig.pojo.Factory">
+    insert into factory (id, factory_ame, holder, 
+      phone)
+    values (#{id,jdbcType=INTEGER}, #{factoryAme,jdbcType=VARCHAR}, #{holder,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pj.littlepig.pojo.Factory">
+    insert into factory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="factoryAme != null">
+        factory_ame,
+      </if>
+      <if test="holder != null">
+        holder,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="factoryAme != null">
+        #{factoryAme,jdbcType=VARCHAR},
+      </if>
+      <if test="holder != null">
+        #{holder,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pj.littlepig.pojo.Factory">
+    update factory
+    <set>
+      <if test="factoryAme != null">
+        factory_ame = #{factoryAme,jdbcType=VARCHAR},
+      </if>
+      <if test="holder != null">
+        holder = #{holder,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pj.littlepig.pojo.Factory">
+    update factory
+    set factory_ame = #{factoryAme,jdbcType=VARCHAR},
+      holder = #{holder,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
