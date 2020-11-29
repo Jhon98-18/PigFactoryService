@@ -1,15 +1,17 @@
 package com.pj.littlepig.dao;
 
+import com.pj.littlepig.pojo.Type;
+
 public interface TypesMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Types record);
+    int insert(Type record);
 
-    int insertSelective(Types record);
+    int insertSelective(Type record);
 
-    Types selectByPrimaryKey(Integer id);
+    Type selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(Types record);
+    int updateByPrimaryKeySelective(Type record);
 
-    int updateByPrimaryKey(Types record);
+    int updateByPrimaryKey(Type record);
 }
