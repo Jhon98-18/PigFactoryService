@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pj.littlepig.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.pj.littlepig.pojo.User">
+  <resultMap id="BaseResultMap" type="com.pj.littlepig.pojo.SysUser">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="passWord" jdbcType="VARCHAR" property="password" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="passWord" jdbcType="VARCHAR" property="passWord" />
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="sex" jdbcType="INTEGER" property="sex" />
   </resultMap>
@@ -12,7 +12,7 @@
     id, userName, passWord, age, sex
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=INTEGER}
@@ -21,22 +21,20 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.pj.littlepig.pojo.User">
-    insert into user (id, userName, passWord, 
-      age, sex)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{age,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.pj.littlepig.pojo.SysUser">
+    insert into user (id, userName, passWord,age, sex)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR},#{age,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.pj.littlepig.pojo.User">
+  <insert id="insertSelective" parameterType="com.pj.littlepig.pojo.SysUser">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="username != null">
+      <if test="userName != null">
         userName,
       </if>
-      <if test="password != null">
+      <if test="passWord != null">
         passWord,
       </if>
       <if test="age != null">
@@ -50,11 +48,11 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+      <if test="passWord != null">
+        #{passWord,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
         #{age,jdbcType=INTEGER},
@@ -64,14 +62,14 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pj.littlepig.pojo.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.pj.littlepig.pojo.SysUser">
     update user
     <set>
-      <if test="username != null">
-        userName = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        userName = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        passWord = #{password,jdbcType=VARCHAR},
+      <if test="passWord != null">
+        passWord = #{passWord,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
         age = #{age,jdbcType=INTEGER},
@@ -82,10 +80,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pj.littlepig.pojo.User">
+  <update id="updateByPrimaryKey" parameterType="com.pj.littlepig.pojo.SysUser">
     update user
-    set userName = #{username,jdbcType=VARCHAR},
-      passWord = #{password,jdbcType=VARCHAR},
+    set userName = #{userName,jdbcType=VARCHAR},
+      passWord = #{passWord,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
       sex = #{sex,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
