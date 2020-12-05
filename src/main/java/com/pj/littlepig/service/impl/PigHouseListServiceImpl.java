@@ -8,15 +8,21 @@ import com.pj.littlepig.pojo.PigHouse;
 import com.pj.littlepig.service.PigHouseListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
+
 @Service
 public class PigHouseListServiceImpl implements PigHouseListService {
 
     @Autowired
     private PigHouseMapper pigHouseMapper;
+
     @Override
     public List<PigHouse> getPigHouseListByHouseId(String houseId) {
+        if (StringUtils.isEmpty(houseId)) {
+            return pigHouseMapper.getAllPigHouseList();
+        }
         List<PigHouse> pigHouseListByHouseId = pigHouseMapper.getPigHouseListByHouseId(Integer.parseInt(houseId));
         return pigHouseListByHouseId;
     }
