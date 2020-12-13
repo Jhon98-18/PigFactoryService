@@ -20,7 +20,7 @@ public class Login {
     @Autowired
     UserService userService;
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public void login(@RequestParam String userName, @RequestParam String passWord) {
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(userName, passWord);
         // 验证
