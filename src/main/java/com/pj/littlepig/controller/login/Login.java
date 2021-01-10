@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping
 public class Login {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -20,13 +21,13 @@ public class Login {
     @Autowired
     UserService userService;
 
-    @GetMapping("/login")
-    public void login(@RequestParam String userName, @RequestParam String passWord) {
-        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(userName, passWord);
-        // 验证
-        Authentication auth = authenticationManager.authenticate(authRequest);
-        SecurityContextHolder.getContext().setAuthentication(auth);
-    }
+//    @PostMapping("/login")
+//    public void login(@RequestParam String userName, @RequestParam String passWord) {
+//        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(userName, passWord);
+//        // 验证
+//        Authentication auth = authenticationManager.authenticate(authRequest);
+//        SecurityContextHolder.getContext().setAuthentication(auth);
+//    }
 
     @PostMapping("/Register")
     public void Register(@RequestBody SysUser user) {

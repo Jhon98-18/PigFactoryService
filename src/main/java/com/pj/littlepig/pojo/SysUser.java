@@ -1,11 +1,21 @@
 package com.pj.littlepig.pojo;
 
-public class SysUser {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
+
+public class SysUser implements UserDetails {
     private Integer id;
     private String userName;
     private String passWord;
     private Integer age;
     private Integer sex;
+
+    List<GrantedAuthority> authority;
+
 
     public Integer getId() {
         return id;
@@ -48,13 +58,37 @@ public class SysUser {
     }
 
     @Override
-    public String toString() {
-        return "SysUser{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", age=" + age +
-                ", sex=" + sex +
-                '}';
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authority;
+    }
+
+    @Override
+    public String getPassword() {
+        return passWord;
+    }
+
+    @Override
+    public String getUsername() {
+        return userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 }

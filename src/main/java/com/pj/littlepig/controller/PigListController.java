@@ -11,13 +11,13 @@ import com.pj.littlepig.service.PigListService;
 import com.pj.littlepig.service.RoleService;
 import com.pj.littlepig.service.UserRoleService;
 import com.pj.littlepig.service.UserService;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.pj.littlepig.response.ResponseStatus.OK;
-import static com.pj.littlepig.response.ResponseStatus.WRONG;
+import static com.pj.littlepig.response.ResponseStatus.*;
 
 @CrossOrigin
 @RestController
@@ -33,7 +33,7 @@ public class PigListController {
     private UserRoleService userRoleService;
 
     @GetMapping("/getPigList")
-    public ResponseEntity getPigListByFactoryId(@RequestParam(value = "factoryId",required = false) String factoryId) {
+    public ResponseEntity getPigListByFactoryId(@RequestParam(value = "factoryId", required = false) String factoryId) {
         List<Pig> pig = pigListService.getPigListByFactory(factoryId);
         return new ResponseEntity(pig);
     }
