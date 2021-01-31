@@ -17,7 +17,7 @@ public class TestJwtUtils {
 
     public static final String SUBJECT = "congge";
 
-    public static final long EXPIRITION = 1000*10;
+    public static final long EXPIRITION = 1000*60*1;
 
     public static final String APPSECRET_KEY = "congge_secret";
 

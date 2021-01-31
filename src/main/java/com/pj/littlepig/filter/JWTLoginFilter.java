@@ -39,7 +39,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
             SysUser loginUser = new ObjectMapper().readValue(request.getInputStream(), SysUser.class);
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginUser.getUserName(),
-                            loginUser.getPassWord(),null));
+                            loginUser.getPassWord(), null));
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -72,7 +72,9 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         String tokenStr = TestJwtUtils.TOKEN_PREFIX + token;
-        response.setHeader("token", tokenStr);
+//        response.setHeader("token", tokenStr);
+        response.addHeader("token", tokenStr);
+        response.setHeader("Access-Control-Expose-Headers", "token");
     }
 
     @Override
